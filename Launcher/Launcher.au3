@@ -21,7 +21,7 @@
 
 Global $Filename = "config.ini" ; Variable for Config file
 Global $filedir = @ScriptDir & "\" & $Filename ; Variable for file directory to store path of config.ini
-Global $ipconfigout = @ScriptDir & "\TOOLS\ipconfig-output.txt" ; Variable for the ipconfig output file path from batch file
+Global $ipconfigout = @ScriptDir & "\Tools\ipconfig-output.txt" ; Variable for the ipconfig output file path from batch file
 Global $iFileExists = FileExists($filedir) ; Varuiable used to check if config.ini file is in the game directory
 Global $currentIPEnabled = IniRead($filedir, "Config", "IpAddress", "default") ; Variable that reads current value of IpAddress in Config.ini
 Global $currentIPDisabled = IniRead($filedir, "Config", "# IpAddress", "default"); Variable that reads current value of Commented IpAddress in Config.ini
@@ -790,8 +790,8 @@ While 1
 			Exit
 
 		Case $nMsg = $configGUI[6] ; Case structure for the IPCONFIG button in the Config Tab to run the ipconfig batch file and open the outputfile.
-			If FileExists(".\TOOLS\ipconfig.bat") Then
-			Run(".\TOOLS\ipconfig.bat")
+			If FileExists(".\Tools\ipconfig.bat") Then
+			Run(".\Tools\ipconfig.bat")
 			Sleep(1000)
 			Run("notepad.exe " & $ipconfigout, @WindowsDir)
 			Else
@@ -826,7 +826,7 @@ While 1
 			Run("control.exe joy.cpl,,4")
 
 		Case $nMsg = $controllerGUI[4] ; Case structure for the JoystickDetection button to run the JoystickDetection_Realease application
-			If FileExists(".\TOOLS\JoystickDetection_Release.exe") Then
+			If FileExists(".\Tools\JoystickDetection_Release.exe") Then
 			Run(".\TOOLS\JoystickDetection_Release.exe")
 			Else
 			MsgBox (16, "Error", "The file JoystickDetection_Release.exe is not found. Please make sure you copied the TOOLS folder over to the Game Directory")
